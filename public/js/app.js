@@ -20,8 +20,8 @@ contactForm.addEventListener("submit",async (event) => {
     if(!(Object.values(formData).includes(' '))){
       try {
         await axios.post('/send',formData); 
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
       } 
     }
   }
