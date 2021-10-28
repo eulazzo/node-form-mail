@@ -5,6 +5,7 @@ let email = document.getElementById("email");
 let subject = document.getElementById("subject");
 let message = document.getElementById("message");
 
+
 contactForm.addEventListener("submit",async (event) => {
   event.preventDefault();
 
@@ -14,6 +15,16 @@ contactForm.addEventListener("submit",async (event) => {
     subject: subject.value,
     message: message.value,
   };
-  await axios.post('/send',formData);  
-  
+
+  const noEmptyField = async(formData) => {
+    if(!(Object.values(formData).includes(' '))){
+      try {
+        await axios.post('/send',formData); 
+      } catch (error) {
+        console.log(error);
+      } 
+    }
+  }
+
+  noEmptyField(formData)  
 });

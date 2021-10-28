@@ -7,14 +7,14 @@ router.post("/send", async(request, response) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.USER_EMAIL,
-      pass: process.env.EMAIL_PASSWORD
+      user: 'lazarovanderson95@gmail.com',
+      pass: 'CoLx12@lAz17bb'
     },
   });
 
   const mailOptions =  {
     from: request.body.email,
-    to:"roberttmello@protonmail.com",
+    to:"lazarovanderson@gmail.com",
     subject: `Message from ${request.body.email}: ${request.body.subject}`,
     text: request.body.message,
   };
